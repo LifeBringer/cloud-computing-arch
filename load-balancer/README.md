@@ -3,11 +3,11 @@
 ## Web application on AWS EC2
 
 1. Launch two EC2 instances. Ensure that you use the same security group. [Step-by-step](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html)
-![EC2 instances](load-balancer/img/instances.png)
+![EC2 instances](img/instances.png)
 
 2. Modify the inbound firewall rules (HTTP over Port 5000 using TCP is custom) to make them reachable for the load balancer and the public:
   
-    ![Firewall](load-balancer/img/ec2-inbound-rules.png)
+    ![Firewall](img/ec2-inbound-rules.png)
 
 3. Run the requirments.txt file to load dependencies, new to flask? Here's a [guide](https://www.tutorialspoint.com/flask/index.htm). Refer to the sections of Environment and HTTP Methods.
 
@@ -21,7 +21,7 @@
     `HTTP GET "/"`
 
 5. The program, i.e. app.py, should return the integer seed value in string format. The response body for the above case will be: "100"
-  ![Flask Server](load-balancer/img/2-instance-setup.png)
+  ![Flask Server](img/2-instance-setup.png)
 
 6. The web application will run on a specific port and be deployed in both EC2 instances. Note the IP in the terminal is the subnet IP and is inaccessible. Use the EC2's public IP.
 
@@ -31,12 +31,12 @@
 ) document. 
 
 2. Connect your load balancer to a target group with the previously launched EC2 instances. Make sure to map the webserver port to the load balancer correctly.
-  ![Load Balancer Listener Ports](load-balancer/img/load-balancer-listener-port.png)
+  ![Load Balancer Listener Ports](img/load-balancer-listener-port.png)
   
 3. When configuring the load balancer, ensure not to use the default security group. Enable the HTTP protocol and allow traffic to be routed from anywhere when creating a custom security group. You will not pass this assignment unless our autograder can connect to your system via the internet.
-  ![Target Group register targets](load-balancer/img/target-group-targets.png)
+  ![Target Group register targets](img/target-group-targets.png)
 4. To check if your load balancer is running correctly, first make sure that the two EC2 instances are healthy in the target group, and then go to the DNS address listed in the AWS load balancer's description and look for the seed value.
-  ![Healthy Target Group](load-balancer/img/target-group-port-healthy.png)
+  ![Healthy Target Group](img/target-group-port-healthy.png)
 
 ## FAQ
 1. Load balancer - Failing security checks? Check [this](http://flask.palletsprojects.com/en/1.1.x/quickstart/#quickstart) out!
