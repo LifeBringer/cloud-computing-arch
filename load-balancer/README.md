@@ -24,7 +24,8 @@
   ![Flask Server](img/2-instance-setup.png)
 
 6. The web application will run on a specific port and be deployed in both EC2 instances. Note the IP in the terminal is the subnet IP and is inaccessible. Use the EC2's public IP.
-
+  ![Server thingz](img/running-servers.png)
+  
 ## Load balancing web servers
 
 1. We will launch an AWS Application Load Balancer, which will allow us to distribute HTTP requests between the two instances that were just initiated. To get started, go over [this](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancer-getting-started.html
