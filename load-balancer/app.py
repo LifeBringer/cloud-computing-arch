@@ -1,7 +1,8 @@
 from flask import Flask, request, jsonify
+import random
 app = Flask(__name__)
 
-seed = 0
+seed = random.randint(0, 100)
 
 @app.route('/', methods = ['POST', 'GET'])
 def resp():
